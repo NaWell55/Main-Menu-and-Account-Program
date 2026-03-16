@@ -1,75 +1,6 @@
 import math
 import time
-
-def topla(a,b):
-    return a + b
-
-
-def cikar(a,b):
-    return a - b
-
-
-def carpma(a,b):
-    return a * b
-
-
-def bolme(a, b):                      
-    if b == 0:
-        return "0 ile bölme yapamazsın"
-    return a / b
-
-
-def usalma(a,b):
-    return a ** b
-
-
-def karekok(a):
-    return math.sqrt(a)
-
-
-def mutlakdeger(a):     
-    if a < 0:
-        return -a
-    return a
-
-
-def modalma(a,b):
-    return a % b
-
-
-def ortalama(a, b):            
-    return (a + b) / 2
-
-
-def enbuyuk(a, b):
-    if a > b:
-        return a
-    elif a < b:
-        return b
-    else:
-        return "İki sayıda eşit"
-    
-
-
-def ucgencevre(a, b, c):
-    return a + b + c
-
-def ucgenalan(t, y):
-    return t*y/2
-
-def karecevre(a):
-    return a*4
-
-def karealan(a):
-    return a*a
-
-def dikdortgencevre(a, b):
-    return 2*(a+b)
-
-def dikdortgenalan(a, b):
-    return a*b
-
-
+from fonksiyonlar import *
 
 
 while True:
@@ -94,10 +25,10 @@ Seçiminiz: """)
             print("Tebrikler! Giriş yaptınız, Ana Menüye Hoşgeldiniz.")
             while True:
                 anaMenu = input(f"""- ANA MENÜ - Bilgiler: İsim: {isim}   Mail: {mail}
-1-Hesap Makinesi
-2-Geometri Hesaplama
-3-Trendyol Süper Lig Puan Durumu
-4-Çıkış
+1- Hesap Makinesi
+2- Geometri Hesaplama
+3- 5 Büyük Lig Puan Durumları
+4- Çıkış
                                 
 Seçiminiz: """)
                 if anaMenu == "1":
@@ -152,7 +83,7 @@ Seçiminiz: """)
 
 
                         elif hesapMankinesi == "6":
-                            karekoksayi1 = int(input("Sayıyı Girin: ")),
+                            karekoksayi1 = int(input("Sayıyı Girin: "))
                             sonuc = karekok(karekoksayi1)
                             print("Sonuç:", sonuc)
 
@@ -190,6 +121,8 @@ Seçiminiz: """)
                                 print("Çıkılıyor...")
                                 time.sleep(2)
                                 break
+                            elif cikis == "h":
+                                continue
                         
                         else:
                             print("Yanlış tuşlama bir daha deneyiniz...")
@@ -248,6 +181,8 @@ Seçiminiz: """)
                                 print("Çıkılıyor...")
                                 time.sleep(2)
                                 break
+                            elif cikis == "h":
+                                continue
 
                         else:
                             print("Yanlış Tuşlama bir daha deneyiniz...")
@@ -255,40 +190,58 @@ Seçiminiz: """)
 
 
                 elif anaMenu == "3":
-                    print(f"""- TRENDYOL SÜPER LİG PUAN DURUMU -
-Sezon
-2025-26                                                    
+                    while True:
+                        ligsecim = input("""- 5 BÜYÜK LİG PUAN DURUMLARI -
+1- Trendyol Süper Lig (Türkiye)
+2- Premier League (İngiltere)
+3- La Liga (İspanya)
+4- Serie A (İtalya)
+5- Bundesliga (Almanya)
+6- League 1 (Fransa)
+7- Çıkış
 
-Takım                    OM  G   B  M  AG  YG  A   P     Son 5
-1-Galatasaray            26  20  4  2  62  18  44  64    GMGGG
-2-Fenerbahçe             26  16  9  1  57  27  30  57    GBBGM
-3-Trabzonspor            26  17  6  3  52  29  23  57    MGGGG
-4-Beşiktaş               26  14  7  5  47  30  17  49    GGGMG
-5-Göztepe                26  11  10 5  30  20  10  43    BMBMB
-6-Başakşehir             26  12  6  8  44  30  14  42    MGGGM
-7-Samsunspor             26  8   11 7  29  31  -2  35    MBBMG
-8-Kocaelispor            26  9   6  11 23  27  -4  33    GMMGM
-9-Gaziantep FK           26  8   9  9  35  42  -7  33    MMBBG
-10-Rizespor              26  7   9  10 32  36  -4  30    BGGGM
-11-Alanyaspor            26  5   13 8  28  32  -4  28    GMMBB
-12-Konyaspor             26  6   9  11 30  39  -9  27    MGMBG
-13-Gençlerbirliği        26  6   7  13 28  36  -8  25    BMBBM
-14-Kasımpaşa             26  5   9  12 22  36  -14 24    GBMBG
-15-Antalyaspor           26  6   6  14 25  43  -18 24    GMBMM
-16-Eyüpspor              26  6   7  14 19  37  -18 22    MGBMM
-17-Kayserispor           26  3   11 12 20  48  -28 20    BGBMM
-18-Karagümrük            26  4   5  17 24  46  -22 17    MBMBG
-                          
-UEFA Şampiyonlar Ligi grup aşaması ---> 1.                   Son 5 maç
-Avrupa Ligi eleme turu katılımcıları ---> 3.                 G ---> Galibiyet
-Avrupa Konferans Ligi eleme turu katılımcıları ---> 4.       B ---> Berabere
-Küme düşme 16. ,17. , 18.                                    M ---> Mağlubiyet""")
+Seçiminiz: """)
+                        if ligsecim == "1":
+                            superlig()
+                    
+                        elif ligsecim == "2":
+                            premierlig()
+
+                        elif ligsecim == "3":
+                            laliga()
+
+                        elif ligsecim == "4":
+                            seriea()
+
+                        elif ligsecim == "5":
+                            bundesliga()
+
+                        elif ligsecim == "6":
+                            lig1()
+
+                        elif ligsecim == "7":
+                            cikis = input("Emin misin(e,h): ")
+                            if cikis == "e":
+                                print("Çıkılıyor...")
+                                time.sleep(2)
+                                break
+                            elif cikis == "h":
+                                continue
+
+                        else:
+                            print("Yanlış Tuşlama bir daha deneyiniz...")
+                    
+
+
+
                 elif anaMenu == "4":
                     cikis = input("Emin misin(e,h): ")
                     if cikis == "e":
                         print("Çıkılıyor...")
                         time.sleep(2)
                         break
+                    elif cikis == "h":
+                        continue
 
                 else:
                     print("Yanlış Tuşlama bir daha deneyiniz...")
@@ -301,6 +254,8 @@ Küme düşme 16. ,17. , 18.                                    M ---> Mağlubiy
             print("Çıkılıyor...")
             time.sleep(2)
             break
+        elif cikis == "h":
+            continue
     
     
     
